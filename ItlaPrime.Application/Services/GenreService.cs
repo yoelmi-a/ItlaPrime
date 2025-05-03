@@ -1,4 +1,4 @@
-﻿using ItlaPrime.Application.Repositories;
+﻿using ItlaPrime.Application.Interfaces;
 using ItlaPrime.Application.ViewModels;
 using ItlaPrime.Database.Entities;
 
@@ -6,9 +6,9 @@ namespace ItlaPrime.Application.Services
 {
     public class GenreService
     {
-        private readonly GenreRepository _genreRepository;
+        private readonly IGenreRepository _genreRepository;
 
-        public GenreService(GenreRepository genreRepository)
+        public GenreService(IGenreRepository genreRepository)
         {
             _genreRepository = genreRepository;
         }

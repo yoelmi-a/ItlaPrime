@@ -1,3 +1,6 @@
+using ItlaPrime.Application.Interfaces;
+using ItlaPrime.Application.Repositories;
+using ItlaPrime.Application.Services;
 using ItlaPrime.Database.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +11,12 @@ builder.Services.AddControllersWithViews();
 
 var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<ItlaPrimeContext>(opt => opt.UseSqlServer(connectionString));
+builder.Services.AddScoped<ISeriesRepository, SeriesRepository>();
+builder.Services.AddScoped<IProducerRepository, ProducerRepository>();
+builder.Services.AddScoped<IGenreRepository, GenreRepository>();
+builder.Services.AddTransient<GenreService>();
+builder.Services.AddTransient<ProducerService>();
+builder.Services.AddTransient<SeriesService>();
 
 var app = builder.Build();
 

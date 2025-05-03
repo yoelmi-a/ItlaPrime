@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ItlaPrime.Application\ItlaPrime.Application.csproj" />
     <ProjectReference Include="..\ItlaPrime.Database\ItlaPrime.Database.csproj" />
   </ItemGroup>
 

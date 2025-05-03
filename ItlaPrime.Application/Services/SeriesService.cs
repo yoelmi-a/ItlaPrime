@@ -33,6 +33,20 @@ namespace ItlaPrime.Application.Services
             return await _seriesRepository.GetAllSeriesViewModelAsync(s => s.ProducerID == producerID);
         }
 
+        public async Task<CreateSeriesViewModel> GetSeriesById(int id)
+        {
+            var series = await _seriesRepository.GetByIdAsync(id);
+            return new CreateSeriesViewModel
+            {
+                Id = series.Id,
+                Name = series.Name,
+                ImageUrl = series.ImageUrl,
+                PrimaryGenreID = series.PrimaryGenreID,
+                SecondaryGenreID = series.SecondaryGenreID,
+                ProducerID = series.ProducerID
+            };
+        }
+
         public async Task CreateSeriesAsync(CreateSeriesViewModel vm)
         {
             Series series =  new Series();

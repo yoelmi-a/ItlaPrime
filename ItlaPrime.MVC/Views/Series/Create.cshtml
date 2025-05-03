@@ -1,0 +1,45 @@
+﻿@model ItlaPrime.Application.ViewModels.CreateSeriesViewModel
+
+@{
+	bool editMode = Model.Id == 0 ? false : true;
+	ViewData["Title"] = "Agregar nueva serie";
+}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-6 offset-3">
+			<div class="card">
+				<div class="card-header bg-dark text-light">
+					<h4>@(editMode ? $"Editando la serie {Model.Name}" : "Agregando una nueva serie")</h4>
+				</div>
+				<div class="card-body">
+					<form method="post" asp-controller="Series" asp-action=@(editMode ? "Edit" : "Create")>
+						<div class="mb-3">
+							<label asp-for="Name" class="form-label">Nombre</label>
+							<input type="text" asp-for="Name" class="form-control" />
+						</div>
+						<div class="mb-3">
+							<label asp-for="ImageUrl" class="form-label">Url de la imagen</label>
+							<input type="text" asp-for="ImageUrl" class="form-control" />
+						</div>
+						<div class="mb-3">
+							<label asp-for="PrimaryGenreID" class="form-label">Género principal</label>
+							<select class="form-select" asp-for="PrimaryGenreID" asp-items="ViewBag.Genres"></select>
+						</div>
+						<div class="mb-3">
+							<label asp-for="SecondaryGenreID" class="form-label">Género secundario</label>
+							<select class="form-select" asp-for="SecondaryGenreID" asp-items="ViewBag.Genres"></select>
+						</div>
+						<div class="mb-3">
+							<label asp-for="ProducerID" class="form-label">Productora</label>
+							<select class="form-select" asp-for="ProducerID" asp-items="ViewBag.Producers"></select>
+						</div>
+						<input type="hidden" asp-for="Id" />
+						<button type="submit" class="btn btn-primary">Agregar</button>
+						<a asp-controller="Series" asp-action="Index" class="btn btn-warning">Volver atras</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

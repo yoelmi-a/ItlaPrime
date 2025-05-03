@@ -1,4 +1,4 @@
-﻿using ItlaPrime.Application.Repositories;
+﻿using ItlaPrime.Application.Interfaces;
 using ItlaPrime.Application.ViewModels;
 using ItlaPrime.Database.Entities;
 
@@ -6,9 +6,9 @@ namespace ItlaPrime.Application.Services
 {
     public class ProducerService
     {
-        private readonly ProducerRepository _producerRepository;
+        private readonly IProducerRepository _producerRepository;
 
-        public ProducerService(ProducerRepository producerRepository)
+        public ProducerService(IProducerRepository producerRepository)
         {
             _producerRepository = producerRepository;
         }
