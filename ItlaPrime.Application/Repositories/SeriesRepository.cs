@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using ItlaPrime.Application.Interfaces;
+using ItlaPrime.Application.ViewModels;
 using ItlaPrime.Database.Context;
 using ItlaPrime.Database.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -27,14 +28,30 @@ namespace ItlaPrime.Application.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Series>> GetAllAsync()
+        public async Task<List<SeriesViewModel>> GetAllSeriesViewModelAsync()
         {
-            return await _context.Series.ToListAsync();
+            return await _context.Series.Select(s => new SeriesViewModel
+            {
+                Id = s.Id,
+                Name = s.Name,
+                ImageUrl = s.ImageUrl,
+                PrimaryGenre = s.PrimaryGenre!.Name,
+                SecondaryGenre = s.SecondaryGenre!.Name,
+                Producer = s.Producer!.Name,
+            }).ToListAsync();
         }
 
-        public async Task<List<Series>> GetAllAsync(Expression<Func<Series, bool>> filter)
+        public async Task<List<SeriesViewModel>> GetAllSeriesViewModelAsync(Expression<Func<Series, bool>> filter)
         {
-            return await _context.Series.Where(filter).ToListAsync();
+            return await _context.Series.Where(filter).Select(s => new SeriesViewModel
+            {
+                Id = s.Id,
+                Name = s.Name,
+                ImageUrl = s.ImageUrl,
+                PrimaryGenre = s.PrimaryGenre!.Name,
+                SecondaryGenre = s.SecondaryGenre!.Name,
+                Producer = s.Producer!.Name,
+            }).ToListAsync();
         }
 
         public async Task<Series> GetByIdAsync(int id)

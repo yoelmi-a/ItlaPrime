@@ -33,11 +33,6 @@ namespace ItlaPrime.Application.Repositories
             return await _context.Genres.ToListAsync();
         }
 
-        public async Task<List<Genre>> GetAllAsync(Expression<Func<Genre, bool>> filter)
-        {
-            return await _context.Genres.Where(filter).ToListAsync();
-        }
-
         public async Task<Genre> GetByIdAsync(int id)
         {
             return await _context.Genres.FindAsync(id);

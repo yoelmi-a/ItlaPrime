@@ -33,11 +33,6 @@ namespace ItlaPrime.Application.Repositories
             return await _context.Producers.ToListAsync();
         }
 
-        public async Task<List<Producer>> GetAllAsync(Expression<Func<Producer, bool>> filter)
-        {
-            return await _context.Producers.Where(filter).ToListAsync();
-        }
-
         public async Task<Producer> GetByIdAsync(int id)
         {
             return await _context.Producers.FindAsync(id);
