@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItlaPrime.Database", "ItlaP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItlaPrime.MVC", "ItlaPrime.MVC\ItlaPrime.MVC.csproj", "{56AC74BC-12E3-4EB7-A007-1382F9CEC313}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItlaPrime.Application", "ItlaPrime.Application\ItlaPrime.Application.csproj", "{9AC83FF8-10E7-4554-BE64-1BFFF07F42E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{56AC74BC-12E3-4EB7-A007-1382F9CEC313}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56AC74BC-12E3-4EB7-A007-1382F9CEC313}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56AC74BC-12E3-4EB7-A007-1382F9CEC313}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC83FF8-10E7-4554-BE64-1BFFF07F42E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC83FF8-10E7-4554-BE64-1BFFF07F42E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC83FF8-10E7-4554-BE64-1BFFF07F42E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC83FF8-10E7-4554-BE64-1BFFF07F42E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
